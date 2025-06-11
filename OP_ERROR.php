@@ -18,3 +18,15 @@
  *
  */
 namespace OP;
+
+/**	OP_ERROR
+ *
+ * @genesis    ????-??-??  op-core-4:/Error.class.php
+ * @porting    2025-06-11  from op-core-7:/Notice.class.php
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+trait OP_ERROR
+{
+
+}
