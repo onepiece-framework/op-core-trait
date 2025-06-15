@@ -109,3 +109,32 @@ trait OP_ERROR
 		return array_shift($session) ?? [];
 	}
 }
+
+/**	Register shutdown function.
+ *
+ *  This shutdown function is called only when there is the Notice.
+ *  If not have Notice, this file will not be called.
+ *
+ * @porting    2025-06-13  from op-core-7:/Notice.class.php
+ * @version    1.0
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+register_shutdown_function(function()
+{
+	try{
+		//	...
+		if( Unit::Load('Error') ){
+			Unit::Instantiate('Error')::Auto();
+			return;
+		}else{
+			echo '`op-unit-error` is not available.';
+		}
+
+		//	...
+		Error::Auto();
+
+	}catch( \Throwable $e ){
+		D($e);
+	}
+});
