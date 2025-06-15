@@ -13,3 +13,16 @@
  *
  */
 namespace OP;
+
+/**	OP_ENV
+ *
+ * @genesis    2022-10-05  Move from op-core-7:/Env.class.php
+ * @rebirth    2025-06-15  op-core-trait:/OP_ENV.php
+ * @version    1.0
+ * @package    op-core-trait
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+trait OP_ENV
+{
+}
