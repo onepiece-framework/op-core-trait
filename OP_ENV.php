@@ -51,4 +51,22 @@ trait OP_ENV
 		//	Return already calced static value.
 		return $_is_localhost;
 	}
+
+	/**	Is Admin
+	 *
+	 * @return boolean
+	 */
+	static function isAdmin() : bool
+	{
+		//	Keep calced value.
+		static $_is_admin;
+
+		//	Check if not init.
+		if( $_is_admin === null ){
+			$_is_admin = include_once(_ROOT_ASSET_.'/core/include/isAdmin.php');
+		}
+
+		//	Return already calced static value.
+		return $_is_admin;
+	}
 }
