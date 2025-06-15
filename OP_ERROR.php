@@ -28,5 +28,19 @@ namespace OP;
  */
 trait OP_ERROR
 {
+	/**	Get session by reference.
+	 *
+	 * @porting    2025-06-14  from op-core-7:/Notice.class.php
+	 * @return     array
+	 */
+	static private function & _Session() : array
+	{
+		//	...
+		if(!isset($_SESSION[_OP_NAME_SPACE_][_APP_ID_]['OP_ERROR']) ){
+			$_SESSION[_OP_NAME_SPACE_][_APP_ID_]['OP_ERROR'] = [];
+		};
+		//	...
+		return $_SESSION[_OP_NAME_SPACE_][_APP_ID_]['OP_ERROR'];
+	}
 
 }
