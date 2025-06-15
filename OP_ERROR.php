@@ -97,4 +97,15 @@ trait OP_ERROR
 		//	...
 		$session[$key] = $reference;
 	}
+
+	/**	Get error information.
+	 *
+	 * @porting    2025-06-14  from op-core-7:/Notice.class.php
+	 * @return     array
+	 */
+	static function Get() : array
+	{
+		$session = & self::_Session();
+		return array_shift($session) ?? [];
+	}
 }
