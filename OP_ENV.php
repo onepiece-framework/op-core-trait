@@ -25,4 +25,12 @@ namespace OP;
  */
 trait OP_ENV
 {
+	/**	Is Shell
+	 *
+	 * @return boolean
+	 */
+	static function isShell() : bool
+	{
+		return PHP_SAPI === 'cli' ? true: false;
+	}
 }
