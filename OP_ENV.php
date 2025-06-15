@@ -33,4 +33,22 @@ trait OP_ENV
 	{
 		return PHP_SAPI === 'cli' ? true: false;
 	}
+
+	/**	Is localhost
+	 *
+	 * @return boolean
+	 */
+	static function isLocalhost() : bool
+	{
+		//	Keep calced value.
+		static $_is_localhost;
+
+		//	Check if not init.
+		if( $_is_localhost === null ){
+			$_is_localhost = include_once(_ROOT_ASSET_.'/core/include/isLocalhost.php');
+		}
+
+		//	Return already calced static value.
+		return $_is_localhost;
+	}
 }
