@@ -43,4 +43,58 @@ trait OP_ERROR
 		return $_SESSION[_OP_NAME_SPACE_][_APP_ID_]['OP_ERROR'];
 	}
 
+	/**	Set error information.
+	 *
+	 * @porting    2025-06-14  from op-core-7:/Notice.class.php
+	 * @param     \Throwable   $e
+	 * @param      array       $traces
+	 */
+	static function Set( $e, $traces=null )
+	{
+		//	Get session reference.
+		$session = & self::_Session();
+
+		//	...
+		if( $e instanceof \Throwable ){
+			$message = $e->getMessage();
+			$traces  = $e->getTrace();
+			$file    = $e->getFile();
+			$line    = $e->getLine();
+			array_unshift($traces, ['file'=>$file, 'line'=>$line]);
+		}else if( is_array($e) ){
+			// Q: In what situations is this needed here?
+			// A: error_get_last() is return array.
+			$file    = $e['file'];
+			$line    = $e['line'];
+		//	$type    = $e['type'];
+			$message = $e['message'];
+		}else{
+			$message = $e;
+		}
+
+		//	...
+		$key       = substr(md5($message), 0, 8);
+		$timestamp = date('Y-m-d H:i:s');
+
+		//	...
+		$reference = isset($session[$key]) ? $session[$key]: null;
+
+		//	...
+		if( empty($reference) ){
+			//	...
+			$reference['count']     = 1;
+			$reference['created']   = $timestamp;
+			$reference['message']   = $message;
+			$reference['backtrace'] = $traces ?? debug_backtrace();
+		}else{
+			$reference['count']    += 1;
+			$reference['updated']   = $timestamp;
+		}
+
+		//	...
+		$reference['REQUEST_URI'][] = ($_SERVER['REQUEST_URI'] ?? null);
+
+		//	...
+		$session[$key] = $reference;
+	}
 }
