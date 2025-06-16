@@ -25,6 +25,16 @@ namespace OP;
  */
 trait OP_ENV
 {
+	/**	Is CI
+	 *
+	 * @created    2022-11-11
+	 * @return     boolean
+	 */
+	static function isCI() : bool
+	{
+		return ( basename($_SERVER['SCRIPT_NAME']) === 'ci.php' ) ? true: false;
+	}
+
 	/**	Is Shell
 	 *
 	 * @return boolean
