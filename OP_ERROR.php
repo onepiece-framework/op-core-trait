@@ -108,4 +108,25 @@ trait OP_ERROR
 		$session = & self::_Session();
 		return array_shift($session) ?? [];
 	}
+
+	/**	Notification
+	 *
+	 */
+	static function Notice()
+	{
+		try{
+			//	...
+			if( Unit::isInstalled('Notice') ){
+				Unit::Instantiated('Notice')->Auto();
+			}else{
+				//	...
+				while( $error = self::Get() ){
+					OP()->Html($error['message'], 'h1');
+					DebugBacktrace::Auto($error['backtrace']);
+				}
+			}
+		}catch( \Throwable $e ){
+			D($e);
+		}
+	}
 }
