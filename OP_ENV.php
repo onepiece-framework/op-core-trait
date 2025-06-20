@@ -97,4 +97,44 @@ trait OP_ENV
 		//	Return already calced static value.
 		return $_is_admin;
 	}
+
+	/**	Get/Set MIME
+	 *
+	 * <pre>
+	 * //  Set MIME.
+	 * OP()->MIME('text/html');
+	 *
+	 * //  Set MIME by extension.
+	 * OP()->MIME('html');
+	 *
+	 * //  Get the MIME that has already been set.
+	 * $mime = OP()->MIME();
+	 * </pre>
+	 *
+	 * @porting    2025-06-20
+	 * @param      string     $mime
+	 * @return     string     $mime
+	 */
+	static function MIME(?string $mime='') : string
+	{
+		//	...
+		static $_mime = '';
+
+		//	...
+		if( $mime ){
+			//	...
+			if( strpos($mime, '/') ){
+				$_mime = $mime;
+			}else{
+				require_once(_ROOT_CORE_.'/function/GetMimeFromExtension.php');
+				$_mime = GetMimeFromExtension($mime);
+			}
+
+			//	...
+			header("Content-type: $_mime");
+		}
+
+		//	...
+		return $_mime;
+	}
 }
