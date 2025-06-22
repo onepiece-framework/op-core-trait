@@ -13,3 +13,17 @@
  *
  */
 namespace OP;
+
+/**	OP_ONEPIECE
+ *
+ * Connected to op-core-7:/OP.class.php
+ *
+ * @genesis    ????-??-??  op-core-4:/OnePiece.class.php
+ * @created    2025-06-22
+ * @version    1.0
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+trait OP_ONEPIECE
+{
+}
