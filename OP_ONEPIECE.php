@@ -8,3 +8,8 @@
  * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
+
+/**	namespace
+ *
+ */
+namespace OP;
