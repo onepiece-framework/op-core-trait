@@ -26,4 +26,29 @@ namespace OP;
  */
 trait OP_ONEPIECE
 {
+	/**	Error
+	 *
+	 * @created    2026-06-22
+	 * @param      string      $error_message
+	 * @param      string      $debag_backtrace
+	 * @return    &Error
+	 */
+	static function & Error( $error_message=null, $debag_backtrace=null ) : Error
+	{
+		//	...
+		static $_error;
+
+		//	...
+		if( $error_message ){
+			Error::Set( $error_message, $debag_backtrace );
+		}
+
+		//	...
+		if(!$_error ){
+			$_error = new Error();
+		}
+
+		//	...
+		return $_error;
+	}
 }
