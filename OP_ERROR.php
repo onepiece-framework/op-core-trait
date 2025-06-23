@@ -120,6 +120,19 @@ trait OP_ERROR
 		return $notice ?? [];
 	}
 
+	/**	If has notice.
+	 *
+	 * @return  boolean
+	 */
+	static function Has() : bool
+	{
+		//	Get session reference.
+		$session = & self::_Session();
+
+		//	...
+		return count($session) ? true: false;
+	}
+
 	/**	Notification
 	 *
 	 */
