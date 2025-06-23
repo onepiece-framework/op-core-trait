@@ -131,7 +131,18 @@ trait OP_ENV
 			}
 
 			//	...
-			header("Content-type: $_mime");
+			if(!self::isShell() ){
+				/* @var $file null */
+				/* @var $line null */
+				if( headers_sent($file, $line) ){
+					$meta    =  OP::Path($file);
+					$message = "Header has already sent. ($meta, $line)";
+					Error::Set($message);
+				}
+
+				//	...
+				header("Content-type: $_mime");
+			}
 		}
 
 		//	...
