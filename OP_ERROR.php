@@ -109,6 +109,17 @@ trait OP_ERROR
 		return array_shift($session) ?? [];
 	}
 
+	/**	Pop Notice array.
+	 *
+	 * @return	 array
+	 */
+	static function Pop() : array
+	{
+		$session = & self::_Session();
+		$notice  = array_pop($session);
+		return $notice ?? [];
+	}
+
 	/**	Notification
 	 *
 	 */
