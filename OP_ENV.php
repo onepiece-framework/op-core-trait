@@ -32,7 +32,7 @@ trait OP_ENV
 	 */
 	static function isCI() : bool
 	{
-		return ( basename($_SERVER['SCRIPT_NAME']) === 'ci.php' ) ? true: false;
+		return defined('_IS_CI_');
 	}
 
 	/**	Is Shell
