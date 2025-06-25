@@ -44,6 +44,15 @@ trait OP_ENV
 		return PHP_SAPI === 'cli' ? true: false;
 	}
 
+	/**	Is Http(s) protocol.
+	 *
+	 * @return boolean
+	 */
+	static function isHttp() : bool
+	{
+		return isset($_SERVER['SERVER_NAME']);
+	}
+
 	/**	Is localhost
 	 *
 	 * @return boolean
