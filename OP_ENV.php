@@ -148,4 +148,38 @@ trait OP_ENV
 		//	...
 		return $_mime;
 	}
+
+	/**	Get GET/POST/JSON request.
+	 *
+	 * <pre>
+	 * //  GET and POST and JSON
+	 * $request = OP()->Request();
+	 *
+	 * // Specify key name.
+	 * $val = OP()->Request('key_name');
+	 *
+	 * // If not set key name.
+	 * $null = OP()->Request('not_set_key_name');
+	 *
+	 * // If set default value.
+	 * $name = OP()->Request('nickname') ?? 'unknown';
+	 * </pre>
+	 *
+	 * @porting    2025-06-20
+	 * @param      string     $key
+	 * @return     NULL
+	 */
+	static function Request($key=null)
+	{
+		//	...
+		static $_request = null;
+
+		//	...
+		if( $_request === null ){
+			$_request = require_once(_ROOT_CORE_.'/include/Request.php');
+		}
+
+		//	...
+		return $key ? $_request[$key] ?? null : $_request;
+	}
 }
