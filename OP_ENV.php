@@ -53,6 +53,15 @@ trait OP_ENV
 		return isset($_SERVER['SERVER_NAME']);
 	}
 
+	/**	Is secure HTTPs protocol.
+	 *
+	 * @return boolean
+	 */
+	static function isHTTPs() : bool
+	{
+		return isset($_SERVER['HTTPS']);
+	}
+
 	/**	Is localhost
 	 *
 	 * @return boolean
