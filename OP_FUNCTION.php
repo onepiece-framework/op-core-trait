@@ -46,4 +46,31 @@ trait OP_FUNCTION
 	{
 		return self::_Function($method_name, ...$args);
 	}
+
+	/**	_Function
+	 *
+	 * @created   2022-10-05
+	 * @param     string     $function
+	 * @param     variable variable
+	 * @return    null|boolean|string|array|object
+	 */
+	static private function _Function(string $function, ...$args)
+	{
+		//	...
+		if(!function_exists('OP\\'.$function) ){
+			$path = _ROOT_CORE_."/function/{$function}.php";
+			if( file_exists( $path) ){
+				require_once($path);
+			}else{
+				Error::Set("This function is not implemented: $function");
+				return;
+			}
+		}
+
+		//	...
+		$function = 'OP\\'.$function;
+
+		//	...
+		return $function( ...$args );
+	}
 }
