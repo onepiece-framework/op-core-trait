@@ -24,4 +24,15 @@ namespace OP;
  */
 trait OP_FUNCTION
 {
+	/**	An undefined method was called.
+	 *
+	 * @created     2022-11-12
+	 * @param       string      $method_name
+	 * @param       array       $args
+	 * @return      mixed
+	 */
+	function __call($method_name, $args)
+	{
+		return self::_Function($method_name, ...$args);
+	}
 }
