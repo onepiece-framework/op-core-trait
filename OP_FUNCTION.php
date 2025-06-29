@@ -35,4 +35,15 @@ trait OP_FUNCTION
 	{
 		return self::_Function($method_name, ...$args);
 	}
+
+	/**	An undefined method was called.
+	 *
+	 * @created   2022-10-11
+	 * @param     string $method_name
+	 * @param     array  $args
+	 */
+	static function __callstatic($method_name, $args)
+	{
+		return self::_Function($method_name, ...$args);
+	}
 }
