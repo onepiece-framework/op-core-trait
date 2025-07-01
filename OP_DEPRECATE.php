@@ -36,4 +36,15 @@ trait OP_DEPRECATE
 	{
 		Error::Set($error, $trace);
 	}
+
+	/**	Content is a wrapper method for IF_APP::Content().
+	 *
+	 * Please use instead `OP()->Unit()->App()->Content()`.
+	 *
+	 * @deprecated 2025-07-01
+	 */
+	static function Content()
+	{
+		OP()->Unit()->App()->Content();
+	}
 }
