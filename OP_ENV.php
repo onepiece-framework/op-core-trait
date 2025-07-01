@@ -187,6 +187,7 @@ trait OP_ENV
 	 *
 	 * Returns a secret, unique AppID that should not be made public.
 	 *
+	 * @deprecated 2025-07-01 Keep for compatibility.
 	 * @return     string
 	 */
 	static function AppID() : string
