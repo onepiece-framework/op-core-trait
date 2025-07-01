@@ -24,4 +24,16 @@ namespace OP;
  */
 trait OP_DEPRECATE
 {
+	/**	Notice is a wrapper method for Error::Set().
+	 *
+	 * Please use instead `OP::Error()`.
+	 *
+	 * @deprecated 2025-06-17
+	 * @param      string      $error
+	 * @param      array       $trace
+	 */
+	static function Notice($error, $trace=[])
+	{
+		Error::Set($error, $trace);
+	}
 }
