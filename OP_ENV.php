@@ -182,4 +182,15 @@ trait OP_ENV
 		//	...
 		return $key ? $_request[$key] ?? null : $_request;
 	}
+
+	/**	AppID
+	 *
+	 * Returns a secret, unique AppID that should not be made public.
+	 *
+	 * @return     string
+	 */
+	static function AppID() : string
+	{
+		return _APP_ID_;
+	}
 }
