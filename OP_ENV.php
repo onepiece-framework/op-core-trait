@@ -217,4 +217,28 @@ trait OP_ENV
 		require_once(_ROOT_CORE_.'/function/Time.php');
 		return Time($utc, $time);
 	}
+
+	/**	Return Y-m-d H:i:s timestamp.
+	 *
+	 * <pre>
+	 * // Local time timestamp
+	 * $local_timestamp = OP()->Env()->Timestamp();
+	 *
+	 * // UTC time timestamp
+	 * $utc       = OP()->Env()->Timestamp(true);
+	 *
+	 * // 1 month ago timestamp
+	 * $offset    = OP()->Env()->Timestamp(true, '-1 month');
+	 * </pre>
+	 *
+	 * @created  2019-09-24
+	 * @param    boolean     $utc
+	 * @param    string      $offset
+	 * @return   string      $timestamp
+	 */
+	static function Timestamp( ?bool $utc=false, $offset=null ) : string
+	{
+		require_once(_ROOT_CORE_.'/function/Timestamp.php');
+		return Timestamp($utc, $offset);
+	}
 }
