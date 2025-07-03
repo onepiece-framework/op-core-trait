@@ -144,4 +144,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	Validate
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_VALIDATE
+	 */
+	static function & Validate() : IF_VALIDATE
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
