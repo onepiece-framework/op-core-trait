@@ -114,4 +114,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	ORM
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_ORM
+	 */
+	static function & ORM() : IF_ORM
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
