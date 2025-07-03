@@ -154,4 +154,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	WebPack
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_WEBPACK
+	 */
+	static function & WebPack() : IF_WEBPACK
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
