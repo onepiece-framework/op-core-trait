@@ -44,4 +44,14 @@ trait OP_UNIT_MAPPER
 		//	Return already instantiated unit object.
 		return self::Instantiated($name);
 	}
+
+	/**	Api
+	 *
+	 * @created    2024-06-30
+	 * @return     IF_API
+	 */
+	static function & Api() : IF_API
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
