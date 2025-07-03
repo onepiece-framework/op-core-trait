@@ -84,4 +84,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	Form
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_FORM
+	 */
+	static function & Form() : IF_FORM
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
