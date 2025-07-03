@@ -104,4 +104,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	Notice
+	 *
+	 * @created    2025-06-16
+	 * @return     IF_NOTICE
+	 */
+	static function & Notice() : IF_NOTICE
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
