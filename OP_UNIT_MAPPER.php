@@ -134,4 +134,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	Router
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_ROUTER
+	 */
+	static function & Router() : IF_ROUTER
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
