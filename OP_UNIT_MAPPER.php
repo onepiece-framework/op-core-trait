@@ -54,4 +54,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	App
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_APP
+	 */
+	static function & App() : IF_APP
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
