@@ -74,4 +74,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	Database
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_DATABASE
+	 */
+	static function & Database() : IF_DATABASE
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
