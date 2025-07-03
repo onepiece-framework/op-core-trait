@@ -124,4 +124,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	QQL
+	 *
+	 * @created    2024-07-13
+	 * @return     IF_QQL
+	 */
+	static function & QQL() : IF_QQL
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
