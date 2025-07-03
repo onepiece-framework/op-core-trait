@@ -94,4 +94,14 @@ trait OP_UNIT_MAPPER
 	{
 		return self::_Map(__FUNCTION__);
 	}
+
+	/**	Layout
+	 *
+	 * @created    2024-06-08
+	 * @return     IF_LAYOUT
+	 */
+	static function & Layout() : IF_LAYOUT
+	{
+		return self::_Map(__FUNCTION__);
+	}
 }
