@@ -85,6 +85,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	Dump
+	 *
+	 * @created    2025-07-04
+	 * @return     IF_DUMP
+	 */
+	static function & Dump() : IF_DUMP
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	Form
 	 *
 	 * @created    2024-06-08
