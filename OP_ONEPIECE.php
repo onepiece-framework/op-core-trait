@@ -51,4 +51,32 @@ trait OP_ONEPIECE
 		//	...
 		return $_error;
 	}
+
+	/**	Return already instantiated unit object. (Singleton)
+	 *
+	 * This method that I thought of seems to be called the singleton pattern in the world.
+	 *
+	 * <pre>
+	 * $unit= OP()->Unit('unit_name');
+	 * </pre>
+	 *
+	 * @created   2022-10-07
+	 * @param     string     $name
+	 */
+	static function & Unit( string $name='' )
+	{
+		//	...
+		if( $name ){
+			return Unit::Instantiated($name);
+		}
+
+		//	...
+		static $_unit;
+		//	...
+		if(!$_unit ){
+			$_unit = new Unit();
+		}
+		//	...
+		return $_unit;
+	}
 }
