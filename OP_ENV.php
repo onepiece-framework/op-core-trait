@@ -176,7 +176,10 @@ trait OP_ENV
 
 		//	...
 		if( $_request === null ){
+			/**	Need to include from both OP and Env.
 			$_request = require_once(_ROOT_CORE_.'/include/Request.php');
+			*/
+			$_request = require     (_ROOT_CORE_.'/include/Request.php');
 		}
 
 		//	...
