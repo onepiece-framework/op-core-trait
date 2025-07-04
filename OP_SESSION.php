@@ -31,7 +31,7 @@ trait OP_SESSION
 	static function & Session($key=null, $val=null)
 	{
 		//	...
-		$app_id  = Env::AppID();
+		$app_id  = _APP_ID_;
 
 		//	OP\UNIT\UnitName --> ['OP','UNIT','UnitName']
 		$explode = explode('\\', get_called_class());
