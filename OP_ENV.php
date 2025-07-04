@@ -193,8 +193,11 @@ trait OP_ENV
 	 * @deprecated 2025-07-01 Keep for compatibility.
 	 * @return     string
 	 */
-	static function AppID() : string
+	static function AppID( ?string $app_id=null ) : string
 	{
+		if( $app_id ){
+			throw new \Exception("AppID can no longer be assigned: $app_id");
+		}
 		return _APP_ID_;
 	}
 
