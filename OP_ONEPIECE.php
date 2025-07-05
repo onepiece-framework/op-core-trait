@@ -166,4 +166,22 @@ trait OP_ONEPIECE
 			return $_config;
 		}
 	}
+
+	/**	Layout
+	 *
+	 * @created    2022-10-04
+	 * @param      string|boolean|null
+	 * @return     string|boolean
+	 */
+	static function Layout( string|bool|null $value=null ) : string | bool | IF_LAYOUT
+	{
+		//	...
+		if( $value !== null ){
+			require_once(_ROOT_CORE_.'/function/Layout.php');
+			return Layout($value);
+		}
+
+		//	...
+		return OP::Unit('Layout');
+	}
 }
