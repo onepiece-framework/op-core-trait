@@ -108,4 +108,13 @@ trait OP_OBJECT
 		}
 		return $_env;
 	}
+
+	/**	App
+	 *
+	 * @return \OP\UNIT\App
+	 */
+	static function & App() : IF_APP
+	{
+		return Unit::Instantiated('App');
+	}
 }
