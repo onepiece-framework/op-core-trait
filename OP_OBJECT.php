@@ -117,4 +117,13 @@ trait OP_OBJECT
 	{
 		return Unit::Instantiated('App');
 	}
+
+	/**	WebPack
+	 *
+	 * @return IF_WEBPACK
+	 */
+	static function & WebPack() : IF_WEBPACK
+	{
+		return Unit::Instantiated('WebPack');
+	}
 }
