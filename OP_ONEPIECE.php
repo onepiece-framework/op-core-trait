@@ -113,4 +113,24 @@ trait OP_ONEPIECE
 			return ConvertPath( $path, false, false );
 		}
 	}
+
+	/**	Convert to document root path from full path and meta path.
+	 *
+	 * <pre>
+	 * //  Convert to document root path from full path.
+	 * $url = OP()->URL(__FILE__);
+	 *
+	 * //  Convert to document root path from meta path.
+	 * $url = OP()->URL('app:/smart_url/id');
+	 * </pre>
+	 *
+	 * @created    2025-06-13
+	 * @param      string     $path
+	 * @return     string
+	 */
+	static function URL( string $path ) : string
+	{
+		require_once(_ROOT_CORE_.'/function/ConvertURL-2.php');
+		return ConvertURL( $path );
+	}
 }
