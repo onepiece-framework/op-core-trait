@@ -57,10 +57,15 @@ trait OP_ONEPIECE
 	 * This method that I thought of seems to be called the singleton pattern in the world.
 	 *
 	 * <pre>
-	 * $unit= OP()->Unit('unit_name');
+	 * //  ...
+	 * OP()->Unit()->App()->Auto();
+	 *
+	 * //  ...
+	 * OP()->Unit('App')->Auto();
 	 * </pre>
 	 *
 	 * @created   2022-10-07
+	 * @porting   2025-07-04
 	 * @param     string     $name
 	 */
 	static function & Unit( string $name='' )
