@@ -93,4 +93,19 @@ trait OP_OBJECT
 		//	...
 		return $_meta_path;
 	}
+
+	/**	Env
+	 *
+	 * @deprecated  2025-07-05
+	 * @created     2023-04-26
+	 * @return      Env
+	 */
+	static function & Env() : Env
+	{
+		static $_env;
+		if(!$_env ){
+			$_env = new Env();
+		}
+		return $_env;
+	}
 }
