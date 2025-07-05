@@ -65,6 +65,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	CD
+	 *
+	 * @created    2025-07-05
+	 * @return     IF_CD
+	 */
+	static function & CD() : IF_CD
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	CI
 	 *
 	 * @created    2024-11-24
