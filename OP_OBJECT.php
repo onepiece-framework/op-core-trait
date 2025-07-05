@@ -24,4 +24,14 @@ namespace OP;
  */
 trait OP_OBJECT
 {
+	/**	Router unit.
+	 *
+	 * @deprecated 2025-07-05
+	 * @created    2022-09-30
+	 * @return     UNIT\Router
+	 */
+	static function Router() : IF_ROUTER
+	{
+		return OP::Unit('Router');
+	}
 }
