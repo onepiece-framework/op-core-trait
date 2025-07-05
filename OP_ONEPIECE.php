@@ -133,4 +133,37 @@ trait OP_ONEPIECE
 		require_once(_ROOT_CORE_.'/function/ConvertURL-2.php');
 		return ConvertURL( $path );
 	}
+
+	/**	Config
+	 *
+	 * <pre>
+	 * // Get config by name. file is "asset:/config/name.php".
+	 * $config = OP::Config('name');
+	 *
+	 * // Set config by name.
+	 * OP::Config('name', ['key'=>'value']);
+	 * </pre>
+	 *
+	 * @created    2022-11-01
+	 * @param      string     $name
+	 * @param      array      $config
+	 * @return
+	 */
+	static function Config( ?string $name=null, ?array $config=null )
+	{
+		//	...
+		if( $name ){
+			if( $config ){
+				return Config::Set($name, $config);
+			}else{
+				return Config::Get($name);
+			}
+		}else{
+			static $_config;
+			if(!$_config ){
+				$_config = new Config();
+			}
+			return $_config;
+		}
+	}
 }
