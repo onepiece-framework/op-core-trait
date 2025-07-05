@@ -84,4 +84,33 @@ trait OP_ONEPIECE
 		//	...
 		return $_unit;
 	}
+
+	/**	Convert local file path.
+	 *
+	 * <pre>
+	 * //  Convert to meta path from full path.
+	 * $meta_path = OP()->Path(__FILE__);
+	 *
+	 * //  Convert to full path from meta path.
+	 * $app_root = OP()->Path('app:/smart_url/id');
+	 * </pre>
+	 *
+	 * @created    2025-06-13
+	 * @param      string     $path
+	 * @return     string
+	 */
+	static function Path( string $path ) : string
+	{
+		//	...
+		$path = trim($path);
+
+		//	...
+		if( $path[0] === '/' ){
+			require_once(_ROOT_CORE_.'/function/CompressPath.php');
+			return CompressPath( $path );
+		}else{
+			require_once(_ROOT_CORE_.'/function/ConvertPath.php');
+			return ConvertPath( $path, false, false );
+		}
+	}
 }
