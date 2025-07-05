@@ -195,4 +195,15 @@ trait OP_ONEPIECE
 		require_once(_ROOT_CORE_.'/function/Encode.php');
 		return Encode( $value );
 	}
+
+	/**	Decode value(s).
+	 *
+	 * @param  mixed $value
+	 * @return mixed $value
+	 */
+	static function Decode( $value )
+	{
+		require_once(_ROOT_CORE_.'/function/Decode.php');
+		return Decode( $value );
+	}
 }
