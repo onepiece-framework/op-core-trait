@@ -184,4 +184,15 @@ trait OP_ONEPIECE
 		//	...
 		return OP::Unit('Layout');
 	}
+
+	/**	Encode value(s).
+	 *
+	 * @param  mixed $value
+	 * @return mixed $value
+	 */
+	static function Encode( $value )
+	{
+		require_once(_ROOT_CORE_.'/function/Encode.php');
+		return Encode( $value );
+	}
 }
