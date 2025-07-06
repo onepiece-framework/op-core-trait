@@ -115,6 +115,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	Git
+	 *
+	 * @created    2025-07-06
+	 * @return     IF_GIT
+	 */
+	static function & Git() : IF_GIT
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	Layout
 	 *
 	 * @created    2024-06-08
