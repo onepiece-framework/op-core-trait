@@ -34,7 +34,7 @@ trait OP_DEPRECATE
 	 */
 	static function Notice($error, $trace=null)
 	{
-		Error::Set($error, $trace);
+		Error::Set($error, $trace ?? debug_backtrace());
 	}
 
 	/**	Content is a wrapper method for IF_APP::Content().
