@@ -131,7 +131,7 @@ trait OP_ONEPIECE
 	static function URL( string $path ) : string
 	{
 		require_once(_ROOT_CORE_.'/function/ConvertURL-2.php');
-		return ConvertURL( $path );
+		return ConvertURL( $path ) ?? '';
 	}
 
 	/**	Config
