@@ -40,7 +40,7 @@ trait OP_ONEPIECE
 
 		//	...
 		if( $error_message ){
-			Error::Set( $error_message, $debag_backtrace );
+			Error::Set( $error_message, $debag_backtrace ?? debug_backtrace() );
 		}
 
 		//	...
