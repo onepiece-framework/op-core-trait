@@ -32,7 +32,7 @@ trait OP_DEPRECATE
 	 * @param      string      $error
 	 * @param      array       $trace
 	 */
-	static function Notice($error, $trace=[])
+	static function Notice($error, $trace=null)
 	{
 		Error::Set($error, $trace);
 	}
