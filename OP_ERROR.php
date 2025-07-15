@@ -150,7 +150,7 @@ trait OP_ERROR
 				}
 			}
 		}catch( \Throwable $e ){
-			D($e);
+			D($e->getMessage());
 		}
 	}
 }
