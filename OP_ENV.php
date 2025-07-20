@@ -25,6 +25,14 @@ namespace OP;
  */
 trait OP_ENV
 {
+	/**	Constant
+	 *
+	 * @var string
+	 */
+	const _ADMIN_IP_	 = 'admin-ip';
+	const _ADMIN_MAIL_	 = 'admin-mail';
+	const _ADMIN_FROM_	 = 'admin-from';
+
 	/**	Is CI
 	 *
 	 * @created    2022-11-11
