@@ -206,4 +206,15 @@ trait OP_ONEPIECE
 		require_once(_ROOT_CORE_.'/function/Decode.php');
 		return Decode( $value );
 	}
+
+	/**	Output html tag.
+	 *
+	 * @param      string $string
+	 * @param      string $attr
+	 */
+	static function Html( $string, $attr=null )
+	{
+		require_once(_ROOT_CORE_.'/function/Html.php');
+		Html( $string, $attr, true );
+	}
 }
