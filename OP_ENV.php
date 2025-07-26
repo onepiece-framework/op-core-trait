@@ -189,6 +189,7 @@ trait OP_ENV
 	/**	AppID
 	 *
 	 * Returns a secret, unique AppID that should not be made public.
+	 * "_APP_ID_" is defined in "asset:/config/op.php".
 	 *
 	 * @deprecated 2025-07-01 Keep for compatibility.
 	 * @return     string
