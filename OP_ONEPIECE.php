@@ -217,4 +217,27 @@ trait OP_ONEPIECE
 		require_once(_ROOT_CORE_.'/function/Html.php');
 		Html( $string, $attr, true );
 	}
+
+	/**	Mail
+	 *
+	 * <pre>
+	 * //	Plain text mail
+	 * OP()->Mail('addr@example.com', 'TEST', 'This is just test mail.');
+	 *
+	 * //	HTML mail
+	 * OP()->Mail('addr@example.com', 'HTML mail', '<h1>HTML</h1><p>This is HTML format mail.</p>', ['mime'=>'text/html']);
+	 * </pre>
+	 *
+	 * @created    2025-07-27
+	 * @param      string  $to       Destination email address.
+	 * @param      string  $subject  Subject line of the email.
+	 * @param      string  $message  Body content of the email.
+	 * @param      array   $headers  Optional headers (from, reply, mime, charset, cc, bcc).
+	 * @return     bool              Returns true if mail was accepted for delivery, false otherwise.
+	 */
+	static function Mail( string $to, string $subject, string $message, array $headers=[] ) : bool
+	{
+		require_once(_ROOT_CORE_.'/function/Mail.php');
+		return Mail( $to, $subject, $message, $headers );
+	}
 }
