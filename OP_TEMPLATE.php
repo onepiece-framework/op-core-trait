@@ -43,13 +43,21 @@ trait OP_TEMPLATE
 	 *  4. Templates directory in the Skeleton.
 	 *
 	 * ```index.php
-	 * OP()->Template('index.phtml', ['foo'=>'bar']);
+	 * $args = [
+	 *     'foo' => 'bar',
+	 *     'var' => [
+	 *         true,
+	 *         false,
+	 *         null,
+	 *     ],
+	 * ];
+	 * OP()->Template('index.phtml', $args);
 	 * ```
 	 *
 	 * ```index.phtml
 	 * &lt;?php
-	 * D($args);
-	 * D($args['foo']); // --> 'bar'
+	 * D( $_ARGS );
+	 * D( $_ARGS['foo'] ); // --> 'bar'
 	 * ```
 	 * </pre>
 	 *
@@ -162,20 +170,20 @@ trait OP_TEMPLATE
 		//	Load file.
 		try {
 			//	Sealed inside the closure.
-			$result = call_user_func(function($template_path, $args){
+			$result = call_user_func(function($template_path, $_ARGS){
 
-				//	Swap file name. Because avoid conflicts. --> $args['path']
+				//	Swap file name. Because avoid conflicts. --> $_ARGS['path']
 				$md5 = 'file_' . md5(microtime());
 				${$md5} = $template_path;
 
 				//	If variables passed.
-				if(!empty($args) ){
+				if(!empty($_ARGS) ){
 					//	Extract passed variables.
-					extract($args, EXTR_SKIP);
+					extract($_ARGS, EXTR_SKIP);
 				};
 
 				//	Flush arguments.
-				//	unset($path, $args);
+				//	unset($path, $_ARGS);
 
 				//	Execute file.
 				return include(${$md5});
