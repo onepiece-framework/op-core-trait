@@ -240,4 +240,35 @@ trait OP_ONEPIECE
 		require_once(_ROOT_CORE_.'/function/Mail.php');
 		return Mail( $to, $subject, $message, $headers );
 	}
+
+	/**	Returns instantiated Session object.
+	 *
+	 * <pre>
+	 * //  Gets the value stored in the session by specifying the key name.
+	 * //  If not set, the default value is 0.
+	 * $count = OP()->Session()->Get('count', 0);
+	 *
+	 * //  Count up.
+	 * $count = $count + 1;
+	 *
+	 * //  Stores data in the session by specifying a key name.
+	 * OP()->Session()->Set('count', $count);
+	 * </pre>
+	 *
+	 * @created    2025-08-11
+	 * @return    \OP\Session
+	 */
+	static function Session() : Session
+	{
+		//	...
+		static $_session;
+
+		//	...
+		if(!$_session){
+			$_session = new Session();
+		}
+
+		//	...
+		return $_session;
+	}
 }
