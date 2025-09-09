@@ -271,4 +271,35 @@ trait OP_ONEPIECE
 		//	...
 		return $_session;
 	}
+
+	/**	Returns instantiated Cookie object.
+	 *
+	 * <pre>
+	 * //  Gets the value stored in the cookie by specifying the key name.
+	 * //  If not set, the default value is 0.
+	 * $count = OP()->Cookie()->Get('count', 0);
+	 *
+	 * //  Count up.
+	 * $count = $count + 1;
+	 *
+	 * //  Stores data in the cookie by specifying a key name.
+	 * OP()->Cookie()->Set('count', $count);
+	 * </pre>
+	 *
+	 * @created    2025-08-20
+	 * @return    \OP\Cookie
+	 */
+	static function Cookie() : Cookie
+	{
+		//	...
+		static $_cookie;
+
+		//	...
+		if(!$_cookie){
+			$_cookie = new Cookie();
+		}
+
+		//	...
+		return $_cookie;
+	}
 }
