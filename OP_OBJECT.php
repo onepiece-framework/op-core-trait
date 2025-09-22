@@ -30,10 +30,12 @@ trait OP_OBJECT
 	 * @created    2022-09-30
 	 * @return     UNIT\Router
 	 */
+	/*
 	static function Router() : IF_ROUTER
 	{
 		return OP::Unit('Router');
 	}
+	*/
 
 	/**	Meta path
 	 *
