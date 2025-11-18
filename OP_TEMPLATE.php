@@ -3,6 +3,9 @@
  *
  * @created    2024-06-28  op-core:/trait/OP_TEMPLATE.php
  * @moved      2025-06-22  op-core-trait:/OP_TEMPLATE.php
+ * @version    1.0
+ * @package    op-core
+ * @subpackage trait
  * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
@@ -15,11 +18,6 @@ namespace OP;
 /**	OP_TEMPLATE
  *
  * @created    2024-06-28
- * @version    1.0
- * @package    op-core
- * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
  */
 trait OP_TEMPLATE
 {

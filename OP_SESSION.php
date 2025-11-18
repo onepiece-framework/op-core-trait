@@ -2,6 +2,9 @@
 /**	op-core-trait:/OP_SESSION.php
  *
  * @created    2019-04-10
+ * @version    1.0
+ * @package    op-core
+ * @subpackage trait
  * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
@@ -14,11 +17,6 @@ namespace OP;
 /**	OP_SESSION
  *
  * @created    2019-04-10
- * @version    1.0
- * @package    op-core
- * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
  */
 trait OP_SESSION
 {

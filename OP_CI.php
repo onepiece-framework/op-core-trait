@@ -4,7 +4,8 @@
  * @created    2022-10-12  op-core-7:/trait/OP_CI.php
  * @moved      2025-06-11  op-core-trait:/OP_CI.php
  * @version    1.0
- * @package    op-core-trait
+ * @package    op-core
+ * @subpackage trait
  * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
@@ -18,13 +19,12 @@ namespace OP;
  *
  * If OP_CI is not used as a trait, the CI/CD pipeline will fail.
  *
+ *
+ *
+ *
+ *
  * @created    2022-10-12  op-core-7:/trait/OP_CI.php
  * @moved      2025-06-11  op-core-trait:/OP_CI.php
- * @version    1.0
- * @package    op-core
- * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
  */
 trait OP_CI
 {

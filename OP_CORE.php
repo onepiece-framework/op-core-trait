@@ -19,8 +19,6 @@ namespace OP;
 /**	OP_CORE
  *
  * @created    2016-12-05
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
  */
 trait OP_CORE
 {
