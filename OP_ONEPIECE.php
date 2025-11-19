@@ -299,4 +299,23 @@ trait OP_ONEPIECE
 		//	...
 		return $_cookie;
 	}
+
+	/**	Encrypt
+	 *
+	 * <pre>
+	 * //  Encrypt a string.
+	 * $encrypt = OP()->Encrypt('string');
+	 *
+	 * //  Encrypt an array.
+	 * $encrypt = OP()->Encrypt(['string', true, false, null]);
+	 * </pre>
+	 *
+	 * @created    2025-11-19
+	 * @param      string|array
+	 * @return     string
+	 */
+	static function Encrypt( $value ) : string
+	{
+		return Encrypt::Enc(serialize($value));
+	}
 }
