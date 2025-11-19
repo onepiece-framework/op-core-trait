@@ -24,12 +24,15 @@ trait OP_SESSION
 	 *
 	 * @created   ????-??-??
 	 * @updated   2019-04-10
-	 * @return array
 	 */
 	static function & Session($key=null, $val=null)
 	{
-		//	...
-		$app_id  = _APP_ID_;
+		//	For op-asset-bootstrap2
+		if( defined( '_APP_ID_' ) ){
+			$app_id = _APP_ID_;
+		}else{
+			$app_id = md5(__FILE__);
+		}
 
 		//	OP\UNIT\UnitName --> ['OP','UNIT','UnitName']
 		$explode = explode('\\', get_called_class());
