@@ -318,4 +318,23 @@ trait OP_ONEPIECE
 	{
 		return Encrypt::Enc(serialize($value));
 	}
+
+	/**	Decrypt
+	 *
+	 * <pre>
+	 * //  Decrypt to a string or array.
+	 * $original = OP()->Decrypt($encrypted_string);
+	 * </pre>
+	 *
+	 * @created    2025-11-19
+	 * @param      string        $value  Encrypted string
+	 * @return     string|array          Decrypted value (string or array)
+	 */
+	static function Decrypt( string $value )
+	{
+		if( $value = Encrypt::Dec($value) ){
+			$value = unserialize($value);
+		}
+		return $value;
+	}
 }
