@@ -61,4 +61,20 @@ trait OP_DEPRECATE
 		}
 		return $url ? OP()->URL($path): OP()->Path($path);
 	}
+
+	/**	Env
+	 *
+	 * @deprecated  2025-11-24
+	 * @created     2023-04-26
+	 * @porting     2025-11-24
+	 * @return      Env
+	 */
+	static function Env()
+	{
+		static $_env;
+		if(!$_env ){
+			$_env = new Env();
+		}
+		return $_env;
+	}
 }
