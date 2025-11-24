@@ -45,4 +45,20 @@ trait OP_DEPRECATE
 	{
 		OP()->Unit()->App()->Content();
 	}
+
+	/**	Path & URL
+	 *
+	 * @deprecated 2025-11-24
+	 * @porting    2025-11-24
+	 * @param      string     $path
+	 * @param      bool       $url
+	 * @return     string
+	 */
+	static function MetaPath(?string $path=null, ?bool $url=null)
+	{
+		if( empty($path) ){
+			return new MetaPath;
+		}
+		return $url ? OP()->URL($path): OP()->Path($path);
+	}
 }
