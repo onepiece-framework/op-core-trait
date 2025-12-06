@@ -3,11 +3,10 @@
  *
  * @created    2022-10-12  op-core-7:/trait/OP_CI.php
  * @moved      2025-06-11  op-core-trait:/OP_CI.php
- * @version    1.0
+ * @license    Apache-2.0
  * @package    op-core
  * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @copyright  (C) 2022 Tomoaki Nagahara
  */
 
 /**	namespace

@@ -4,11 +4,10 @@
  * @genesis    ????-??-??  op-core-4:/OnePiece.class.php
  * @created    2017-02-16  op-core-5:/OP_CORE.trait.php
  * @copied     2025-06-11  op-core-trait:/OP_CORE.php
- * @version    1.0
+ * @license    Apache-2.0
  * @package    op-core
  * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @copyright  (C) 2009 Tomoaki Nagahara
  */
 
 /**	namespace

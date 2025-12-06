@@ -2,11 +2,10 @@
 /**	op-core-trait:/OP_FUNCTION.php
  *
  * @porting    2025-06-15  op-core-trait:/OP_FUNCTION.php
- * @version    1.0
+ * @license    Apache-2.0
  * @package    op-core
  * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @copyright  (C) 2025 Tomoaki Nagahara
  */
 
 /**	namespace

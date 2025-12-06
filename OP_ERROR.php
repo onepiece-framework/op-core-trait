@@ -7,11 +7,10 @@
  *   If you implement `OP\OP_ERROR`, the class will function the same regardless of whether another named.
  *
  * @created    2025-06-11  op-core-trait:/OP_ERROR.php
- * @version    1.0
+ * @license    Apache-2.0
  * @package    op-core
  * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @copyright  (C) 2025 Tomoaki Nagahara
  */
 
 /**	namespace

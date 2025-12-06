@@ -2,8 +2,10 @@
 /**	op-core-trait:/OP_UNIT_MAPPER.php
  *
  * @created    2024-06-08
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @license    Apache-2.0
+ * @package    op-core
+ * @subpackage trait
+ * @copyright  (C) 2024 Tomoaki Nagahara
  */
 
 /**	namespace

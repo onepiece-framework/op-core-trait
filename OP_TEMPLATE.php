@@ -1,13 +1,13 @@
 <?php
 /**	op-core-trait:/OP_TEMPLATE.php
  *
+ * @genesis    2009-??-??  op-core-4
  * @created    2024-06-28  op-core:/trait/OP_TEMPLATE.php
  * @moved      2025-06-22  op-core-trait:/OP_TEMPLATE.php
- * @version    1.0
+ * @license    Apache-2.0
  * @package    op-core
  * @subpackage trait
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @copyright  (C) 2009 Tomoaki Nagahara
  */
 
 /**	namespace
