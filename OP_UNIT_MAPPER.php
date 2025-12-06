@@ -172,6 +172,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	SQL
+	 *
+	 * @created    2025-12-01
+	 * @return     IF_SQL
+	 */
+	static function & SQL() : IF_SQL
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	Validate
 	 *
 	 * @created    2024-06-08
