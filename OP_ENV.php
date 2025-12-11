@@ -225,23 +225,23 @@ trait OP_ENV
 	 *
 	 * <pre>
 	 * // Local time timestamp
-	 * $local_timestamp = OP()->Env()->Timestamp();
+	 * $timestamp = OP()->Env()->Timestamp();
 	 *
 	 * // UTC time timestamp
-	 * $utc       = OP()->Env()->Timestamp(true);
+	 * $timestamp = OP()->Env()->Timestamp( utc:true );
 	 *
 	 * // 1 month ago timestamp
-	 * $offset    = OP()->Env()->Timestamp(true, '-1 month');
+	 * $timestamp = OP()->Env()->Timestamp('-1 month');
 	 * </pre>
 	 *
 	 * @created  2019-09-24
-	 * @param    boolean     $utc
 	 * @param    string      $offset
+	 * @param    boolean     $utc
 	 * @return   string      $timestamp
 	 */
-	static function Timestamp( ?bool $utc=false, $offset=null ) : string
+	static function Timestamp( ?string $offset=null, ?bool $utc=false ) : string
 	{
 		require_once(_ROOT_CORE_.'/function/Timestamp.php');
-		return Timestamp($utc, $offset);
+		return Timestamp( $offset, $utc );
 	}
 }
