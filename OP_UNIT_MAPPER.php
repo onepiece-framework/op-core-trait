@@ -132,6 +132,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	Login
+	 *
+	 * @created    2026-01-20
+	 * @return     IF_LOGIN
+	 */
+	static function & Login() : IF_LOGIN
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	Notice
 	 *
 	 * @created    2025-06-16
