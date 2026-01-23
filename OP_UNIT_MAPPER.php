@@ -34,8 +34,8 @@ trait OP_UNIT_MAPPER
 		}
 
 		//	Do mapping.
-		if( isset($_config[$name]) ){
-			$name = $_config[$name];
+		if( isset($_config['mapping'][$name]) ){
+			$name = $_config['mapping'][$name];
 		}
 
 		//	Return already instantiated unit object.
