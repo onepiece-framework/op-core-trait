@@ -62,6 +62,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	Bitcoin
+	 *
+	 * @created    2026-01-22
+	 * @return     IF_BITCOIN
+	 */
+	static function & Bitcoin() : IF_BITCOIN
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	CD
 	 *
 	 * @created    2025-07-05
