@@ -33,6 +33,32 @@ trait OP_UNIT_MAPPER
 		return self::Instantiated($name);
 	}
 
+	/**	Convert unit name.
+	 *
+	 * @moved      2026-01-25 Unit::Instantiate()
+	 * @param      string     $name
+	 * @return     string
+	 */
+	static function Mapping( string $name ) : string
+	{
+		//	Get unit config.
+		static $_config;
+
+		//	If empty.
+		if(!$_config){
+			$_config = Config::Get('unit');
+		}
+
+		//	Do mapping.
+		$map = strtolower($name);
+		if( isset($_config['mapping'][$map]) ){
+			$name = $_config['mapping'][$map];
+		}
+
+		//	Return.
+		return $name;
+	}
+
 	/**	Api
 	 *
 	 * @created    2024-06-30
