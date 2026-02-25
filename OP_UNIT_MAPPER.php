@@ -26,16 +26,8 @@ trait OP_UNIT_MAPPER
 	 */
 	static private function & _Map( string $name ) : IF_UNIT
 	{
-		//	Get unit config.
-		static $_config;
-		if(!$_config){
-			$_config = Config::Get('unit');
-		}
-
-		//	Do mapping.
-		if( isset($_config['mapping'][$name]) ){
-			$name = $_config['mapping'][$name];
-		}
+		//	Convert unit name.
+		$name = self::Mapping($name);
 
 		//	Return already instantiated unit object.
 		return self::Instantiated($name);
