@@ -131,6 +131,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	Html
+	 *
+	 * @created    2026-02-02
+	 * @return     IF_HTML
+	 */
+	static function & Html() : IF_HTML
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	Layout
 	 *
 	 * @created    2024-06-08
