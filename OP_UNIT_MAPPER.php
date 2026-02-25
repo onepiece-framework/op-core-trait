@@ -5,7 +5,7 @@
  * @license    Apache-2.0
  * @package    op-core
  * @subpackage trait
- * @copyright  (C) 2024 Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara
  */
 
 /**	namespace
@@ -15,7 +15,6 @@ namespace OP;
 
 /**	OP_UNIT_MAPPER
  *
- * @created    2024-06-08
  */
 trait OP_UNIT_MAPPER
 {
