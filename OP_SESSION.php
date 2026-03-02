@@ -50,10 +50,20 @@ trait OP_SESSION
 
 		//	If passed assoc key name.
 		if( $key ){
+			/*
 			//	If not passed value.
 			if( $val !== null ){
 				$session[$key] = $val;
 			};
+			*/
+			//	Check if passed value.
+			if( func_num_args() >= 2 ){
+				if( $val === null ){
+					unset( $session[$key] );
+				}else{
+					$session[$key] = $val;
+				}
+			}
 		};
 
 		//	...
