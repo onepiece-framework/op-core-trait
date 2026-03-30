@@ -219,6 +219,16 @@ trait OP_UNIT_MAPPER
 		return self::_Map(__FUNCTION__);
 	}
 
+	/**	Shell
+	 *
+	 * @created    2026-03-29
+	 * @return     IF_SHELL
+	 */
+	static function & Shell() : IF_SHELL
+	{
+		return self::_Map(__FUNCTION__);
+	}
+
 	/**	SQL
 	 *
 	 * @created    2025-12-01
