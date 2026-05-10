@@ -6,11 +6,15 @@
 
 It gathers wrapper-style methods that preserve older calling styles while the framework transitions to newer APIs.
 
+It should also be understood as the collection point for features that are planned to be removed later.
+
 ## Role
 
 The role of this trait is not to define the preferred new API.
 
 Its role is to preserve compatibility for existing code during rolling updates and long transition periods.
+
+In that sense, `OP_DEPRECATE` is the place where planned-to-be-removed compatibility features are intentionally gathered.
 
 ## Example: `Env()`
 

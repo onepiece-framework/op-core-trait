@@ -35,13 +35,13 @@ This means `asset/config/admin.php` is the main configuration file that controls
 
 The ONEPIECE Framework has gone through several major redesigns.
 
-In the 2016 edition and the 2020 edition, `Env.class.php` existed as a normal class rather than as a trait.
+In `op-core-7` and the 2020 generation, `Env.class.php` existed as a normal class rather than as a trait.
 
 As `op-core` grew larger, maintenance became more difficult.
 
-For the 2030 edition, the framework was slimmed down significantly.
+In `op-core-8` and the 2030 generation, the framework was slimmed down significantly, and `Env.class.php` was no longer needed as a separate primary design object.
 
-As part of that refactoring, environment-related behavior was moved into the `OP_ENV` trait.
+As part of that refactoring, the methods that had been used through `Env.class.php` were moved into `OP_ENV`.
 
 ## Compatibility Responsibility
 
@@ -75,6 +75,14 @@ The direct form is provided by `OP_ENV`.
 
 The older `Env()` access path is preserved through `OP_DEPRECATE`.
 
+This means the practical migration model is:
+
+- the old `Env.class.php`-style methods move into `OP_ENV`
+- `\OP\OP` uses `OP_ENV`, so direct calls such as `OP()->isLocalhost()` work
+- compatibility wrappers in `OP_DEPRECATE` keep `OP()->Env()` usable during migration
+
+Because of that, older units that still call `OP()->Env()` can continue to work while the migration to direct `OP()` methods is still in progress.
+
 ## Relationship to `OP_DEPRECATE`
 
 The backward-compatible `OP()->Env()` method is implemented in `OP_DEPRECATE`.
@@ -90,7 +98,7 @@ This makes the transition strategy explicit:
 
 The dual-call compatibility behavior is considered a transition measure.
 
-The current plan is that this compatibility feature will be removed after the 2030 line.
+The current plan is that this compatibility feature will be removed by or after the 2030 migration line.
 
 In other words, the ability to call both:
 
