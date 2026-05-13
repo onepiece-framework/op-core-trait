@@ -17,9 +17,35 @@
 
 各 typed accessor は次を行います。
 
-- `_Map(__FUNCTION__)` を呼ぶ
+- optional arguments を受け取る
+- `_Map(__FUNCTION__, ...$args)` を呼ぶ
 - `Mapping()` で mapping 後の unit 名を解決する
-- `Instantiated()` を通して unit instance を返す
+- `Instantiated()` を通して unit instance を取得する
+- optional Auto step の後で unit instance を返す
+
+## optional Auto step
+
+`_Map()` は、typed accessor に arguments が渡され、mapping 後の unit instance が `Auto` method を持つ場合だけ `Auto(...$args)` を実行します。
+
+つまり、通常の unit access は副作用を持ちません。
+
+```php
+OP()->Unit()->WebPack();
+```
+
+arguments が渡された場合、その accessor は明示的な Auto shortcut になります。
+
+```php
+OP()->Unit()->WebPack('app.js', 'app.css');
+```
+
+arguments は unit の `Auto()` method に転送されます。
+
+```php
+OP()->Unit()->WebPack()->Auto('app.js', 'app.css');
+```
+
+この behavior は、accessor に arguments がある場合だけに意図的に限定されています。単に unit instance を取得するだけで automatic behavior を起動してはいけません。既存 code は、通常の method call のために mapper accessor で unit instance を取得しているためです。
 
 ## mapping の参照元
 

@@ -24,13 +24,24 @@ trait OP_UNIT_MAPPER
 	 * @param    string     $name
 	 * @return   IF_UNIT
 	 */
-	static private function & _Map( string $name ) : IF_UNIT
+	static private function & _Map( string $name, ...$args ) : IF_UNIT
 	{
 		//	Convert unit name.
 		$name = self::Mapping($name);
 
 		//	Return already instantiated unit object.
-		return self::Instantiated($name);
+		$instance =& self::Instantiated($name);
+
+		//	Run Auto only when arguments are passed, so normal unit access stays side-effect free.
+		if( $args ){
+			//	Check Auto explicitly because not every unit has an automatic entry point.
+			if( method_exists($instance, 'Auto') ){
+				$instance->Auto(...$args);
+			}
+		}
+
+		//	Return the mapped unit instance after the optional Auto call.
+		return $instance;
 	}
 
 	/**	Convert unit name.
@@ -64,9 +75,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-30
 	 * @return     IF_API
 	 */
-	static function & Api() : IF_API
+	static function & Api(...$args) : IF_API
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	App
@@ -74,9 +85,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_APP
 	 */
-	static function & App() : IF_APP
+	static function & App(...$args) : IF_APP
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Bitcoin
@@ -84,9 +95,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2026-01-22
 	 * @return     IF_BITCOIN
 	 */
-	static function & Bitcoin() : IF_BITCOIN
+	static function & Bitcoin(...$args) : IF_BITCOIN
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	CD
@@ -94,9 +105,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2025-07-05
 	 * @return     IF_CD
 	 */
-	static function & CD() : IF_CD
+	static function & CD(...$args) : IF_CD
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	CI
@@ -104,9 +115,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-11-24
 	 * @return     IF_CI
 	 */
-	static function & CI() : IF_CI
+	static function & CI(...$args) : IF_CI
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Database
@@ -114,9 +125,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_DATABASE
 	 */
-	static function & Database() : IF_DATABASE
+	static function & Database(...$args) : IF_DATABASE
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Dump
@@ -124,9 +135,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2025-07-04
 	 * @return     IF_DUMP
 	 */
-	static function & Dump() : IF_DUMP
+	static function & Dump(...$args) : IF_DUMP
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Form
@@ -134,9 +145,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_FORM
 	 */
-	static function & Form() : IF_FORM
+	static function & Form(...$args) : IF_FORM
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Git
@@ -144,9 +155,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2025-07-06
 	 * @return     IF_GIT
 	 */
-	static function & Git() : IF_GIT
+	static function & Git(...$args) : IF_GIT
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Html
@@ -154,9 +165,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2026-02-02
 	 * @return     IF_HTML
 	 */
-	static function & Html() : IF_HTML
+	static function & Html(...$args) : IF_HTML
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Layout
@@ -164,9 +175,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_LAYOUT
 	 */
-	static function & Layout() : IF_LAYOUT
+	static function & Layout(...$args) : IF_LAYOUT
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Login
@@ -174,9 +185,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2026-01-20
 	 * @return     IF_LOGIN
 	 */
-	static function & Login() : IF_LOGIN
+	static function & Login(...$args) : IF_LOGIN
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Notice
@@ -184,9 +195,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2025-06-16
 	 * @return     IF_NOTICE
 	 */
-	static function & Notice() : IF_NOTICE
+	static function & Notice(...$args) : IF_NOTICE
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	ORM
@@ -194,9 +205,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_ORM
 	 */
-	static function & ORM() : IF_ORM
+	static function & ORM(...$args) : IF_ORM
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	QQL
@@ -204,9 +215,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-07-13
 	 * @return     IF_QQL
 	 */
-	static function & QQL() : IF_QQL
+	static function & QQL(...$args) : IF_QQL
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Router
@@ -214,9 +225,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_ROUTER
 	 */
-	static function & Router() : IF_ROUTER
+	static function & Router(...$args) : IF_ROUTER
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Shell
@@ -224,9 +235,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2026-03-29
 	 * @return     IF_SHELL
 	 */
-	static function & Shell() : IF_SHELL
+	static function & Shell(...$args) : IF_SHELL
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	SQL
@@ -234,9 +245,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2025-12-01
 	 * @return     IF_SQL
 	 */
-	static function & SQL() : IF_SQL
+	static function & SQL(...$args) : IF_SQL
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	Validate
@@ -244,9 +255,9 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_VALIDATE
 	 */
-	static function & Validate() : IF_VALIDATE
+	static function & Validate(...$args) : IF_VALIDATE
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 
 	/**	WebPack
@@ -254,8 +265,8 @@ trait OP_UNIT_MAPPER
 	 * @created    2024-06-08
 	 * @return     IF_WEBPACK
 	 */
-	static function & WebPack() : IF_WEBPACK
+	static function & WebPack(...$args) : IF_WEBPACK
 	{
-		return self::_Map(__FUNCTION__);
+		return self::_Map(__FUNCTION__, ...$args);
 	}
 }

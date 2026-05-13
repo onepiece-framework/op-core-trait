@@ -17,9 +17,35 @@ Instead, it adds typed method-chain access for units that are explicitly support
 
 Each typed accessor:
 
-- calls `_Map(__FUNCTION__)`
+- accepts optional arguments
+- calls `_Map(__FUNCTION__, ...$args)`
 - resolves the mapped unit name through `Mapping()`
-- returns the instantiated unit through `Instantiated()`
+- gets the instantiated unit through `Instantiated()`
+- returns the instantiated unit after the optional Auto step
+
+## Optional Auto Step
+
+`_Map()` runs `Auto(...$args)` only when the typed accessor receives arguments and the mapped unit instance has an `Auto` method.
+
+This means normal unit access remains side-effect free:
+
+```php
+OP()->Unit()->WebPack();
+```
+
+When arguments are passed, the accessor becomes an explicit Auto shortcut:
+
+```php
+OP()->Unit()->WebPack('app.js', 'app.css');
+```
+
+The arguments are forwarded to the unit's `Auto()` method:
+
+```php
+OP()->Unit()->WebPack()->Auto('app.js', 'app.css');
+```
+
+This behavior is intentionally gated by the presence of accessor arguments. Simply retrieving a unit instance must not launch its automatic behavior, because existing code uses mapper accessors to get unit instances for normal method calls.
 
 ## Mapping Source
 
