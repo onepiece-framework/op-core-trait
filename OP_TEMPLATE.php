@@ -73,6 +73,12 @@ trait OP_TEMPLATE
 		//	...
 		$result = null;
 
+		//	Check args.
+		if( isset($args[0]) ){
+			Error::Set('The args is array. Not assoc.');
+			return false;
+		}
+
 		//	...
 		if( empty($file) ){
 			Error::Set("An empty string was passed: `{$file}`");
@@ -157,12 +163,6 @@ trait OP_TEMPLATE
 
 			//	Change directory.
 			chdir(dirname($path));
-		}
-
-		//	Check args.
-		if( isset($args[0]) ){
-			Error::Set('The args is array. Not assoc.');
-			return false;
 		}
 
 		//	Load file.
