@@ -16,6 +16,35 @@
 - `Time()`
 - `Timestamp()`
 
+## `isCI()`
+
+`isCI()` は、現在の process が ONEPIECE Framework の CI pipeline の中で実行されている場合に `true` を返します。
+
+現行実装では、`_IS_CI_` constant が定義されているかどうかを確認します。
+
+`OP()->isCI()` は、environment-dependent behavior を CI inspection 中に deterministic にするための、framework 標準の方法です。runtime code が local machine や process の値を必要とする場合、その environment read を小さな method に分け、`OP()->isCI()` が `true` の時だけ固定値を返してください。
+
+例:
+
+```php
+function GetPosixUid()
+{
+	return OP()->isCI() ? 1000 : posix_geteuid();
+}
+```
+
+class を class-based CI に残すべきだが、一部の behavior が次のような runtime-only state に依存する場合、この pattern を使います。
+
+- process user または group
+- local filesystem state
+- shell command availability
+- generated ID または timestamp
+- deterministic な CI value が必要な database record
+
+framework 自身が CI-mode branch を提供できる場合、この pattern は外部 stub class の代替になります。
+
+`OP()->isCI()` を、意味のある contract check を skip するために使わないでください。検査対象 behavior を repeatable にし、その安定した結果を通常の CI config で確認するために使ってください。
+
 ## `isAdmin()`
 
 `isAdmin()` は、現在の request を管理者アクセスとして扱うべきかどうかを判定します。

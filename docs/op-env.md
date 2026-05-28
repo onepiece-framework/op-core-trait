@@ -16,6 +16,35 @@
 - `Time()`
 - `Timestamp()`
 
+## `isCI()`
+
+`isCI()` returns `true` when the current process is running under the ONEPIECE Framework CI pipeline.
+
+The current implementation checks whether the `_IS_CI_` constant is defined.
+
+`OP()->isCI()` is the standard framework way to make environment-dependent behavior deterministic during CI inspection. If runtime code needs values from the local machine or process, split that environment read into a small method and return a fixed value when `OP()->isCI()` is `true`.
+
+Example:
+
+```php
+function GetPosixUid()
+{
+	return OP()->isCI() ? 1000 : posix_geteuid();
+}
+```
+
+Use this pattern when a class should remain in class-based CI but part of its behavior depends on runtime-only state such as:
+
+- process user or group
+- local filesystem state
+- shell command availability
+- generated IDs or timestamps
+- database records that need deterministic CI values
+
+This can replace an external stub class when the framework itself can provide the CI-mode branch.
+
+Do not use `OP()->isCI()` to skip meaningful contract checks. Use it to make inspected behavior repeatable, then verify the stable result through normal CI config.
+
 ## `isAdmin()`
 
 `isAdmin()` determines whether the current request should be treated as administrator access.
