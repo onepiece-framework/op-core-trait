@@ -46,7 +46,7 @@ trait OP_ENV
 	 */
 	static function isHttp() : bool
 	{
-		return isset($_SERVER['SERVER_NAME']);
+		return isset($_SERVER['SERVER_PROTOCOL']) and strpos($_SERVER['SERVER_PROTOCOL'], 'HTTP/') === 0;
 	}
 
 	/**	Is secure HTTPs protocol.
