@@ -244,4 +244,29 @@ trait OP_ENV
 		require_once(_ROOT_CORE_.'/function/Timestamp.php');
 		return Timestamp( $offset, $utc );
 	}
+
+	/**	Return $_SERVER['SERVER_NAME']
+	 *
+	 * @created    2026-06-04
+	 * @author     Codex CLI
+	 * @return     string|null
+	 */
+	static function ServerName() : ?string
+	{
+		//	Return null for CLI or incomplete server environments instead of touching an undefined key.
+		if(!$name = trim($_SERVER['SERVER_NAME'] ?? '') ){
+			return null;
+		}
+
+		//	Reject values that are not usable as a server name in a safety-first framework.
+		if( preg_match('/[\x00-\x20\x7f\/]/', $name) ){
+			if(!OP()->isCI() ){
+				D("Illegal server name: {$name}");
+			}
+			return null;
+		}
+
+		//	Return only a validated server name so callers do not need to inspect $_SERVER directly.
+		return $name;
+	}
 }
